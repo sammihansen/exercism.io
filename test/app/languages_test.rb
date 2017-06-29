@@ -31,9 +31,6 @@ class LanguagesRoutesTest < Minitest::Test
   def test_topic_pages_contain_navigation
     ExercismWeb::Routes::Languages::TOPICS.each do |topic|
       get '/languages/fake/%s' % topic
-      if topic == 'about'
-        puts last_response.body
-      end
       assert_equal 200, last_response.status, "Failing on page: %s" % topic
 
       [
